@@ -40,6 +40,16 @@ public class Fibonacci {
 	    }
 	    return salida;
 	}
+
+	public int sumatoriaFibonacciDe(int n) {
+		int [] secuencia = secuenciaFibonacciDe(n);
+		int sumatoria = 0;
+
+		for(int i = 0; i < secuencia.length; i++){
+			sumatoria += secuencia[i];
+		}
+		return sumatoria;
+	}
 }
 
 

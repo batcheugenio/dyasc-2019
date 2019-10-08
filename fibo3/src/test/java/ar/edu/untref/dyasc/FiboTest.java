@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.Ignore;
 import static org.junit.Assert.assertEquals;
 
-public class fiboTest {
+public class FiboTest {
 
     @Test
     public void imprimirSecuenciaFiboTest() {
@@ -12,4 +12,6 @@ public class fiboTest {
         int [] secuencia = miFibo.secuenciaFibonacciDe(5);
         assertEquals(miFibo.imprimirSecuencia(secuencia, 'h', 'd'), "fibo<5>: 0 1 1 2 3");
     }
+
+
 }
