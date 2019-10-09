@@ -1,5 +1,6 @@
 package ar.edu.untref.dyasc;
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,5 +20,14 @@ public class LectorDeParametrosTest {
         String[] parametros = {"-o=vi", "5"};
         miLector.leerParametros(parametros);
         Assert.assertEquals(miLector.getOpcion(), "vi");
+    }
+
+    @Test
+    public void crearLectorConOpcionYArchivo() throws OpcionNoValidaException {
+        LectorDeParametros miLector = new LectorDeParametros();
+        String[] parametros = {"-o=vi", "-f=archivoDePrueba.txt"};
+
+        miLector.leerParametros(parametros);
+        Assert.assertEquals(miLector.getArchivo(), "archivoDePrueba.txt");
     }
 }
