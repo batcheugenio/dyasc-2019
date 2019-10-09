@@ -9,7 +9,7 @@ public class FiboTest {
     @Test
     public void imprimirSecuenciaFiboTest() {
         Fibonacci miFibo = new Fibonacci();
-        int [] secuencia = miFibo.secuenciaFibonacciDe(5);
+        int [] secuencia = miFibo.generarSecuenciaFibonacciDe(5);
         assertEquals(miFibo.imprimirSecuencia(secuencia, 'h', 'd'), "fibo<5>: 0 1 1 2 3");
     }
 

@@ -9,18 +9,16 @@ public class FuncionamientoTest {
     @Test
     public void funcionalidadSumatoriaTest(){
         Fibonacci miFibo = new Fibonacci();
-        int sumatoria = miFibo.sumatoriaFibonacciDe(5);
+        int sumatoria = miFibo.generarSumatoriaFibonacciDe(5);
         Assert.assertEquals(sumatoria, 7);
     }
 
     @Test
     public void funcionalidadListaTest(){
         Fibonacci miFibo = new Fibonacci();
-        int [] lista = miFibo.secuenciaFibonacciDe(5);
+        int [] lista = miFibo.generarSecuenciaFibonacciDe(5);
         int listaAProbar[] = {0, 1, 1, 2, 3};
-
         Assert.assertArrayEquals(lista, listaAProbar);
     }
-
 
 }

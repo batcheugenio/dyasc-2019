@@ -2,7 +2,7 @@ package ar.edu.untref.dyasc;
 
 public class Fibonacci {
 	
-	public int[] secuenciaFibonacciDe(int n) {
+	public int[] generarSecuenciaFibonacciDe(int n) {
 	    int [] secuencia = new int[n];
 	    
 		if (n == 1) {
@@ -41,8 +41,8 @@ public class Fibonacci {
 	    return salida;
 	}
 
-	public int sumatoriaFibonacciDe(int n) {
-		int [] secuencia = secuenciaFibonacciDe(n);
+	public int generarSumatoriaFibonacciDe(int n) {
+		int [] secuencia = generarSecuenciaFibonacciDe(n);
 		int sumatoria = 0;
 
 		for(int i = 0; i < secuencia.length; i++){

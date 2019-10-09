@@ -21,7 +21,7 @@ public class Program {
 	        direccion = 'd';
 	    }
 	    Fibonacci miFibo = new Fibonacci();
-	    int [] secuencia = miFibo.secuenciaFibonacciDe(cantidadDeTerminos);
+	    int [] secuencia = miFibo.generarSecuenciaFibonacciDe(cantidadDeTerminos);
 	    System.out.println(miFibo.imprimirSecuencia(secuencia, orientacion, direccion));
 	}
 }
