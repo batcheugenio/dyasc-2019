@@ -1,27 +1,24 @@
 package ar.edu.untref.dyasc;
 
+import java.io.IOException;
+
 public class Program {
-	public static void main(String[] args) {
-	    int cantidadDeTerminos = 0;
-	    char orientacion = ' ';
-	    char direccion = ' ';
-	    
-	    if (args.length == 2) {
-	        orientacion = args[0].charAt(3);
-	        direccion = args[0].charAt(4);
-	        
-	        if(!((direccion == 'd' || direccion == 'i') && (orientacion == 'v' || orientacion == 'h'))) {
-	            System.out.println("Opciones no validas.");
-	            return;
-	        }
-	        cantidadDeTerminos = Integer.parseInt(args[1]);
-	    } else {
-	        cantidadDeTerminos = Integer.parseInt(args[0]);
-	        orientacion = 'h';
-	        direccion = 'd';
-	    }
-	    Fibonacci miFibo = new Fibonacci();
-	    int [] secuencia = miFibo.generarSecuenciaFibonacciDe(cantidadDeTerminos);
-	    System.out.println(miFibo.imprimirSecuencia(secuencia, orientacion, direccion));
+	public static void main(String[] args) throws OpcionNoValidaException, IOException {
+		LectorDeParametros miLector = new LectorDeParametros();
+		miLector.leerParametros(args);
+		Fibonacci miFibo = new Fibonacci();
+
+		miFibo.generarSecuenciaFibonacciDe(miLector.getNumeroSucesion());
+
+		Impresora miImpresora = new Impresora(miFibo, miLector.getOpcion(), miLector.getModo());
+
+		if(miLector.getArchivo()!= ""){
+			GestorDeArchivos miGestor = new GestorDeArchivos();
+			miGestor.guardarSalidaEnArchivo(miImpresora.imprimir(), miLector.getArchivo(), miFibo.getNumeroDeSecuencia());
+			System.out.println(miGestor.getSalidaDeArchivo());
+		} else {
+			System.out.println(miImpresora.imprimir());
+		}
+
 	}
 }

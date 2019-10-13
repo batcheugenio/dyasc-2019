@@ -22,7 +22,7 @@ public class ImpresoraTest {
         Impresora miImpresora = new Impresora(miFibo, "vi", "s");
         miImpresora.crearCuerpo();
 
-        Assert.assertEquals("7", miImpresora.getCuerpo());
+        Assert.assertEquals(" 7", miImpresora.getCuerpo());
     }
 
     @Test

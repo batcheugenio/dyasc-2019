@@ -8,14 +8,17 @@ public class LectorDeParametros{
 
     private String opcion = "";
     private String archivo  = "";
-    private char modo = ' ';
+    private String modo = "";
+    private int numeroSucesion;
 
     public void leerParametros(String[] args) throws OpcionNoValidaException{
 
-        for(String parametro: args){
+        for(String parametro : args){
             if(parametro.startsWith("-")){
-                String valorOpcion = parametro.split("=")[1];
-                char charOpcion = parametro.charAt(1);
+
+                String[] param = parametro.split("=");
+                String valorOpcion = param[1];
+                char charOpcion = param[0].charAt(1);
 
                 if(charOpcion == 'o'){
                     this.evaluarOpcion(valorOpcion);
@@ -24,12 +27,22 @@ public class LectorDeParametros{
                 } else if (charOpcion == 'm') {
                     this.evaluarModo(valorOpcion);
                 }
+            } else {
+                this.setNumeroSucesion(Integer.parseInt(parametro));
             }
         }
     }
 
+    public void setNumeroSucesion(int numeroSucesion) {
+        this.numeroSucesion = numeroSucesion;
+    }
+
+    public int getNumeroSucesion(){
+        return this.numeroSucesion;
+    }
+
     private void evaluarModo(String valorOpcion) throws OpcionNoValidaException {
-        setModo(valorOpcion.charAt(0));
+        setModo(valorOpcion);
     }
 
     private void evaluarArchivo(String valorOpcion) throws OpcionNoValidaException{
@@ -54,11 +67,11 @@ public class LectorDeParametros{
         this.opcion = opcion;
     }
 
-    public char getModo() {
+    public String getModo() {
         return modo;
     }
 
-    public void setModo(char modo) {
+    public void setModo(String modo) {
         this.modo = modo;
     }
 

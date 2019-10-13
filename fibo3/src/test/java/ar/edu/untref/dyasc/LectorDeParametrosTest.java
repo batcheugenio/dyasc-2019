@@ -39,7 +39,7 @@ public class LectorDeParametrosTest {
 
         miLector.leerParametros(parametros);
         Assert.assertEquals(miLector.getArchivo(), "archivoDePrueba.txt");
-        Assert.assertEquals(miLector.getModo(), 's');
+        Assert.assertEquals(miLector.getModo(), "s");
         Assert.assertEquals(miLector.getOpcion(), "vi");
     }
 

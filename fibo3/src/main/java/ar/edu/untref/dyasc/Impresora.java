@@ -9,21 +9,23 @@ public class Impresora {
     private int [] secuencia;
     private String cuerpo;
     private String salida;
-    private String modo;
-    private String opcion;
+    private String modo = "l";
+    private String opcion = "hd";
     private Fibonacci fibonacci;
 
     Impresora(Fibonacci fibonacci){
-        setSecuencia(fibonacci.getSecuencia());
         this.fibonacci = fibonacci;
-        this.modo = "l";
-        this.opcion="hd";
+        setSecuencia(fibonacci.getSecuencia());
+
+
     }
 
     Impresora(Fibonacci fibonacci, String opcion, String modo){
         this(fibonacci);
         this.opcion = opcion;
         this.modo = modo;
+
+
     }
 
 
@@ -44,7 +46,7 @@ public class Impresora {
     public void crearCabecera() {
         StringBuilder cabecera = new StringBuilder();
         cabecera.append("fibo<" + String.valueOf(this.fibonacci.getNumeroDeSecuencia()) + ">");
-        if(this.modo == "s"){
+        if(this.modo.equals("s")){
             cabecera.append("s");
         }
         cabecera.append(":");
@@ -71,7 +73,8 @@ public class Impresora {
     public void crearCuerpo() {
 
         StringBuilder cuerpo = new StringBuilder();
-        if(this.modo == "s"){
+        if(this.modo.equals("s")){
+
             cuerpo = this.imprimirSumatoria(cuerpo);
         } else {
             cuerpo = this.imprimirSecuencia(cuerpo);
@@ -80,22 +83,22 @@ public class Impresora {
     }
 
     private StringBuilder imprimirSumatoria(StringBuilder cuerpo){
-        if(this.modo == "s"){
+        if(this.modo.equals("s")){
             cuerpo.append(" "+Integer.toString(fibonacci.getSumatoria()));
         }
         return cuerpo;
     }
 
     private StringBuilder imprimirSecuencia(StringBuilder cuerpo) {
-        if (this.opcion == "hi"){
+        if (this.opcion.equals("hi")){
             for(int i = secuencia.length -1; i>=0; i--) {
                 cuerpo.append(" " + Integer.toString(secuencia[i]));
             }
-        } else if (this.opcion == "vd"){
+        } else if (this.opcion.equals("vd")){
             for(int i=0; i<secuencia.length; i++){
                 cuerpo.append("\n" + Integer.toString(secuencia[i]));
             }
-        } else if(this.opcion == "vi"){
+        } else if(this.opcion.equals("vi")){
             for(int i=secuencia.length -1; i>=0; i--) {
                 cuerpo.append("\n" + Integer.toString(secuencia[i]));
             }
