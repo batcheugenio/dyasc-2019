@@ -16,18 +16,13 @@ public class Impresora {
     Impresora(Fibonacci fibonacci){
         this.fibonacci = fibonacci;
         setSecuencia(fibonacci.getSecuencia());
-
-
     }
 
     Impresora(Fibonacci fibonacci, String opcion, String modo){
         this(fibonacci);
         this.opcion = opcion;
         this.modo = modo;
-
-
     }
-
 
     public String imprimir() {
         this.crearCabecera();
@@ -46,11 +41,11 @@ public class Impresora {
     public void crearCabecera() {
         StringBuilder cabecera = new StringBuilder();
         cabecera.append("fibo<" + String.valueOf(this.fibonacci.getNumeroDeSecuencia()) + ">");
+
         if(this.modo.equals("s")){
             cabecera.append("s");
         }
         cabecera.append(":");
-
         this.setCabecera(cabecera.toString());
     }
 
