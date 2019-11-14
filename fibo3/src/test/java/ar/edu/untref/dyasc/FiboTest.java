@@ -21,7 +21,7 @@ public class FiboTest {
         Fibonacci miFibo = new Fibonacci();
         miFibo.generarSecuenciaFibonacciDe(5);
 
-        Assert.assertEquals(miFibo.getNumeroDeSecuencia(),5);
+        Assert.assertEquals(miFibo.getNumeroDeSecuencia(),3);
     }
 
     @Test
