@@ -6,7 +6,7 @@ import ar.edu.untref.dyasc.OpcionNoValidaException;
 
 public class LectorDeParametros
 
-    private String opcion = "";
+    private String opcioeen = "";
     private String archivo  = "";
     private String modo = "";
     private int numeroSucesion;
