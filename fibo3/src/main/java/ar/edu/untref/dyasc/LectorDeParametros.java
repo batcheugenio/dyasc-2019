@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 import ar.edu.untref.dyasc.OpcionNoValidaException;
 
-public class LectorDeParametros{
+public class LectorDeParametros
 
     private String opcion = "";
     private String archivo  = "";
